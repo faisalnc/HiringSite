@@ -1,103 +1,206 @@
-import Image from "next/image";
+import HeroSection from "@/components/HeroSection";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <>
+      <HeroSection />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
+      {/* About Section */}
+      <section
+        id="about"
+        className="py-20 px-6 md:px-20 bg-white dark:bg-zinc-900 text-gray-800 dark:text-gray-200"
+      >
+        <h2 className="text-3xl font-bold mb-6 text-center">About Me</h2>
+        <p className="max-w-3xl mx-auto text-lg leading-relaxed text-center">
+          Hello! {"I'm"} <strong>Faisal Nazib Chowdhury</strong>, an aspiring
+          Cybersecurity Analyst currently pursuing a Bachelor of Information
+          Technology majoring in Cybersecurity at Deakin University. I have
+          hands-on experience in digital forensics, network investigations, and
+          web development...
+        </p>
+      </section>
+
+      {/* Experience Section */}
+      <section
+        id="experience"
+        className="py-20 px-6 md:px-20 bg-gray-50 dark:bg-zinc-800 text-gray-800 dark:text-gray-200"
+      >
+        <h2 className="text-3xl font-bold mb-10 text-center">
+          Professional Experience
+        </h2>
+        <div className="max-w-4xl mx-auto space-y-8 text-lg leading-relaxed">
+          <div>
+            <h3 className="text-xl font-semibold text-blue-600 dark:text-blue-400 mb-2">
+              Part-time Instructor at Kids Unlimited
+            </h3>
+            <p>
+              Since October 2024, I’ve been working with Kids Unlimited in
+              Melbourne, where I design and deliver engaging lessons on
+              introductory computing for school-aged students...
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-semibold text-blue-600 dark:text-blue-400 mb-2">
+              Customer Service Supervisor at Coles Supermarkets
+            </h3>
+            <p>
+              Since September 2023, I’ve been leading frontline operations at
+              Coles Supermarkets in Melbourne...
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Services */}
+      <section
+        id="services"
+        className="py-20 px-6 md:px-20 bg-white dark:bg-zinc-900 text-gray-800 dark:text-gray-200"
+      >
+        <h2 className="text-3xl font-bold mb-10 text-center">
+          Services I Provide
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <div className="p-6 border rounded-xl bg-white dark:bg-zinc-800 shadow border-gray-200 dark:border-gray-700">
+            <h3 className="text-xl font-semibold text-blue-600 dark:text-blue-400">
+              Web Development
+            </h3>
+            <p className="mt-2 text-gray-700 dark:text-gray-300">
+              React, Next.js, Tailwind — from frontend design to full-stack
+              projects like Fast Car Rentals.
+            </p>
+          </div>
+          <div className="p-6 border rounded-xl bg-white dark:bg-zinc-800 shadow border-gray-200 dark:border-gray-700">
+            <h3 className="text-xl font-semibold text-blue-600 dark:text-blue-400">
+              Cybersecurity Tools
+            </h3>
+            <p className="mt-2 text-gray-700 dark:text-gray-300">
+              Developing forensic analysis tools like packet analyzers, scam
+              detectors, and password crackers.
+            </p>
+          </div>
+          <div className="p-6 border rounded-xl bg-white dark:bg-zinc-800 shadow border-gray-200 dark:border-gray-700">
+            <h3 className="text-xl font-semibold text-blue-600 dark:text-blue-400">
+              Digital Forensics
+            </h3>
+            <p className="mt-2 text-gray-700 dark:text-gray-300">
+              Memory dump analysis, network log review, USB investigations, and
+              steganography-based evidence discovery.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Projects */}
+      <section
+        id="projects"
+        className="py-20 px-6 md:px-20 bg-gray-50 dark:bg-zinc-800 text-gray-800 dark:text-gray-200"
+      >
+        <h2 className="text-3xl font-bold mb-10 text-center">My Projects</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="https://github.com/faisalnc/pcap-analyser"
             target="_blank"
-            rel="noopener noreferrer"
+            className="p-6 border rounded-xl hover:shadow-lg transition bg-gray-50 dark:bg-zinc-900 border-gray-200 dark:border-gray-700"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
+            <h3 className="text-xl font-semibold text-blue-600 dark:text-blue-400">
+              PCAP Analyzer
+            </h3>
+            <p className="mt-2 text-gray-700 dark:text-gray-300">
+              Automated Python tool for detecting network attacks using packet
+              captures.
+            </p>
           </a>
           <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="https://github.com/faisalnc/ScamSpotter"
             target="_blank"
-            rel="noopener noreferrer"
+            className="p-6 border rounded-xl hover:shadow-lg transition bg-gray-50 dark:bg-zinc-900 border-gray-200 dark:border-gray-700"
           >
-            Read our docs
+            <h3 className="text-xl font-semibold text-blue-600 dark:text-blue-400">
+              ScamSpotter
+            </h3>
+            <p className="mt-2 text-gray-700 dark:text-gray-300">
+              A digital forensics project that detects scam patterns in social
+              media comments.
+            </p>
+          </a>
+          <a
+            href="https://github.com/faisalnc/-Fast-Car-Rentals---Website"
+            target="_blank"
+            className="p-6 border rounded-xl hover:shadow-lg transition bg-gray-50 dark:bg-zinc-900 border-gray-200 dark:border-gray-700"
+          >
+            <h3 className="text-xl font-semibold text-blue-600 dark:text-blue-400">
+              Fast Car Rentals Website
+            </h3>
+            <p className="mt-2 text-gray-700 dark:text-gray-300">
+              Car rental website built with HTML, CSS, JavaScript – featuring a
+              vehicle search function.
+            </p>
           </a>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+        <Link
+          href="/projects"
+          className="inline-block mt-6 px-6 py-2 bg-blue-600 text-white font-semibold rounded-full shadow hover:bg-blue-700 transition"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+          View All Projects →
+        </Link>
+      </section>
+
+      {/* Contact */}
+      <section
+        id="contact"
+        className="py-20 px-6 md:px-20 bg-white dark:bg-zinc-900 text-gray-800 dark:text-gray-200"
+      >
+        <h2 className="text-3xl font-bold mb-6 text-center">Get in Touch</h2>
+        <p className="text-center text-gray-600 dark:text-gray-400 mb-10">
+          {"I'm"} always open to opportunities, collaborations, or a quick chat.
+        </p>
+
+        <div className="max-w-2xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="p-6 bg-white dark:bg-zinc-800 rounded-xl shadow text-center border border-gray-200 dark:border-gray-700">
+            <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">Email</p>
+            <a
+              href="mailto:faisal.e924@gmail.com"
+              className="text-blue-600 dark:text-blue-400 font-medium hover:underline"
+            >
+              faisal.e924@gmail.com
+            </a>
+          </div>
+
+          <div className="p-6 bg-white dark:bg-zinc-800 rounded-xl shadow text-center border border-gray-200 dark:border-gray-700">
+            <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">Phone</p>
+            <a
+              href="tel:+61451933592"
+              className="text-blue-600 dark:text-blue-400 font-medium hover:underline"
+            >
+              (+61) 451 933 592
+            </a>
+          </div>
+
+          <div className="p-6 bg-white dark:bg-zinc-800 rounded-xl shadow text-center border border-gray-200 dark:border-gray-700">
+            <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">LinkedIn</p>
+            <a
+              href="https://www.linkedin.com/in/faisal-nazib-chowdhury"
+              target="_blank"
+              className="text-blue-600 dark:text-blue-400 font-medium hover:underline"
+            >
+              /faisal-nazib-chowdhury
+            </a>
+          </div>
+
+          <div className="p-6 bg-white dark:bg-zinc-800 rounded-xl shadow text-center border border-gray-200 dark:border-gray-700 col-span-full sm:col-span-1">
+            <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">GitHub</p>
+            <a
+              href="https://github.com/faisalnc"
+              target="_blank"
+              className="text-blue-600 dark:text-blue-400 font-medium hover:underline"
+            >
+              github.com/faisalnc
+            </a>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

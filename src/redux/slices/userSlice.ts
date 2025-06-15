@@ -8,9 +8,8 @@ interface UserState {
 
 const initialState: UserState = {
   name: "Faisal Nazib",
-  title: "Web Designer & Developer Enthusiast",
-  description:
-    "I create modern digital experiences to help brands thrive online.",
+  title: "Aspiring Cyber Security Analyst",
+  description: "Aspiring cybersecurity professional with a strong foundation in IT, passionate about securing digital systems and building modern web applications.",
 };
 
 const userSlice = createSlice({

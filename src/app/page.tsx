@@ -67,8 +67,8 @@ export default function Home() {
               Web Development
             </h3>
             <p className="mt-2 text-gray-700 dark:text-gray-300">
-              React, Next.js, Tailwind — from frontend design to full-stack
-              projects like Fast Car Rentals.
+              React, Next.js, Tailwind, Vue — from frontend design to full-stack
+              projects like Fast Car Rentals website.
             </p>
           </div>
           <div className="p-6 border rounded-xl bg-white dark:bg-zinc-800 shadow border-gray-200 dark:border-gray-700">
@@ -134,8 +134,8 @@ export default function Home() {
               Fast Car Rentals Website
             </h3>
             <p className="mt-2 text-gray-700 dark:text-gray-300">
-              Car rental website built with HTML, CSS, JavaScript – featuring a
-              vehicle search function.
+              Car rental website built with responsive design features – with a
+              vehicle search function, and integrated database of inventory.
             </p>
           </a>
         </div>

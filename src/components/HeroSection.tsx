@@ -23,7 +23,7 @@ export default function HeroSection() {
         <p className="text-gray-700 max-w-lg mb-6">{description}</p>
         <div className="space-x-4">
           <a
-            href="https://www.linkedin.com/in/faisal-nazib-chowdhury" 
+            href="https://www.linkedin.com/in/faisal-nazib-chowdhury"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition inline-block"
@@ -31,9 +31,13 @@ export default function HeroSection() {
             Hire Me
           </a>
 
-          <button className="border border-blue-600 text-blue-600 px-6 py-2 rounded-full hover:bg-blue-100 transition">
+          <a
+            href="/FaisalNazibCV.pdf"
+            download
+            className="border border-blue-600 text-blue-600 px-6 py-2 rounded-full hover:bg-blue-100 transition inline-block"
+          >
             Download CV
-          </button>
+          </a>
         </div>
       </div>
 

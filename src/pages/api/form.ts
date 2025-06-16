@@ -1,43 +1,30 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import fs from 'fs';
-import path from 'path';
+import clientPromise from '../../../lib/mongodb';
 
-type FormEntry = {
-  name: string;
-  email: string;
-  message: string;
-  submittedAt: string;
-};
-
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
     const { name, email, message } = req.body;
 
-    const formData: FormEntry = {
-      name,
-      email,
-      message,
-      submittedAt: new Date().toISOString(),
-    };
+    try {
+      const client = await clientPromise;
+      const db = client.db("portfolio");
+      const collection = db.collection("contacts");
 
-    const formsDir = path.join(process.cwd(), 'forms');
-    const filePath = path.join(formsDir, 'submissions.json');
+      const result = await collection.insertOne({
+        name,
+        email,
+        message,
+        submittedAt: new Date(),
+      });
 
-    if (!fs.existsSync(formsDir)) {
-      fs.mkdirSync(formsDir);
+      console.log("✅ Saved to MongoDB:", result.insertedId);
+
+      return res.status(200).json({ success: true, message: "Form saved to MongoDB!" });
+    } catch (error) {
+      console.error("❌ MongoDB error:", error);
+      return res.status(500).json({ success: false, message: "Database error" });
     }
-
-    let existing: FormEntry[] = [];
-    if (fs.existsSync(filePath)) {
-      const fileContents = fs.readFileSync(filePath, 'utf8');
-      existing = JSON.parse(fileContents || '[]');
-    }
-
-    existing.push(formData);
-    fs.writeFileSync(filePath, JSON.stringify(existing, null, 2));
-
-    return res.status(200).json({ success: true, message: 'Form saved!' });
   }
 
-  res.status(405).json({ success: false, message: 'Method not allowed' });
+  res.status(405).json({ success: false, message: "Method not allowed" });
 }

@@ -4,6 +4,7 @@ import ExperienceSection from "@/components/ExperienceSection";
 import ServicesSection from "@/components/ServicesSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import ContactSection from "@/components/ContactSection";
+import ContactForm from "@/components/ContactForm";
 
 export default function Home() {
   return (
@@ -19,6 +20,8 @@ export default function Home() {
       <ProjectsSection />
 
       <ContactSection />
+      
+      <ContactForm />
     </>
   );
 }

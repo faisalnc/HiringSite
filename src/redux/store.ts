@@ -1,12 +1,15 @@
-import { configureStore } from '@reduxjs/toolkit'
-import userReducer from './slices/userSlice'
+import { configureStore } from '@reduxjs/toolkit';
+import { githubApi } from './features/githubApi';
+import formReducer from './slices/formSlice'; 
 
 export const store = configureStore({
   reducer: {
-    user: userReducer,
+    [githubApi.reducerPath]: githubApi.reducer,
+    form: formReducer, 
   },
-})
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(githubApi.middleware),
+});
 
-// types
-export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;

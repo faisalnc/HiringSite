@@ -1,15 +1,17 @@
 "use client";
 
-import { useSelector } from "react-redux";
-import { RootState } from "@/redux/store";
-
 export default function HeroSection() {
-  const { name, title, description } = useSelector(
-    (state: RootState) => state.user
-  );
+  const name = "Faisal Nazib";
+  const title = "Aspiring Cyber Security Analyst";
+  const description =
+    "Aspiring cybersecurity professional with a strong foundation in IT, passionate about securing digital systems and building modern web applications.";
 
   return (
-    <section className="flex flex-col-reverse md:flex-row items-center justify-between py-20 px-6 md:px-20 bg-blue-50">
+    <section
+      id="home"
+      className="flex flex-col-reverse md:flex-row items-center justify-between py-20 px-6 md:px-20 bg-blue-50"
+    >
+      {" "}
       {/* Left Text */}
       <div className="text-center md:text-left md:w-1/2">
         <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -20,7 +22,10 @@ export default function HeroSection() {
         <h2 className="text-2xl md:text-3xl text-blue-500 font-semibold mb-3">
           {title}
         </h2>
-        <p className="text-gray-700 max-w-lg mb-6">{description}</p>
+        <p className="text-gray-700 max-w-lg mb-6 leading-relaxed">
+          {description}
+        </p>
+
         <div className="space-x-4">
           <a
             href="https://www.linkedin.com/in/faisal-nazib-chowdhury"
@@ -40,7 +45,6 @@ export default function HeroSection() {
           </a>
         </div>
       </div>
-
       {/* Image */}
       <div className="mb-8 md:mb-0 md:w-1/2 flex justify-center">
         <img

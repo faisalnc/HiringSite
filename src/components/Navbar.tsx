@@ -2,19 +2,38 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter, usePathname } from "next/navigation";
 import { XMarkIcon, Bars3Icon } from "@heroicons/react/24/solid";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const handleScrollTop = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (pathname === "/") {
+      window.scrollTo({ top: 0 });
+    } else {
+      router.push("/");
+
+      // waits to scroll after page loads
+      setTimeout(() => {
+        window.scrollTo({ top: 0 });
+      }, 100);
+    }
+  };
 
   return (
     <>
       {/* Top Navigation Bar */}
       <nav className="fixed top-0 left-0 w-full bg-white dark:bg-zinc-900 shadow-sm z-50">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          <span className="text-xl font-bold text-blue-600 dark:text-blue-400">
-            Faisal Nazib
-          </span>
+          <Link href="/" onClick={handleScrollTop}>
+            <span className="text-xl font-bold text-blue-600 dark:text-blue-400 hover:opacity-80 transition cursor-pointer">
+              Faisal Nazib
+            </span>
+          </Link>
 
           {/* Desktop Links */}
           <div className="hidden md:flex space-x-6 text-gray-700 dark:text-gray-300 font-medium">
@@ -38,7 +57,9 @@ export default function Navbar() {
       {/* Backdrop (always rendered for transition) */}
       <div
         className={`fixed inset-0 bg-black/30 backdrop-blur-sm z-40 transition-opacity duration-300 ${
-          menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          menuOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
         }`}
         onClick={() => setMenuOpen(false)}
       />
@@ -51,7 +72,9 @@ export default function Navbar() {
       >
         {/* Drawer Header */}
         <div className="flex justify-between items-center mb-8">
-          <span className="text-xl font-bold text-blue-600 dark:text-blue-400">Menu</span>
+          <span className="text-xl font-bold text-blue-600 dark:text-blue-400">
+            Menu
+          </span>
           <button onClick={() => setMenuOpen(false)}>
             <XMarkIcon className="h-6 w-6 text-gray-700 dark:text-gray-300" />
           </button>
@@ -59,11 +82,21 @@ export default function Navbar() {
 
         {/* Drawer Links */}
         <div className="flex flex-col space-y-4 text-gray-700 dark:text-gray-300 font-medium">
-          <Link href="/#about" onClick={() => setMenuOpen(false)}>About</Link>
-          <Link href="/#experience" onClick={() => setMenuOpen(false)}>Experience</Link>
-          <Link href="/#services" onClick={() => setMenuOpen(false)}>Services</Link>
-          <Link href="/#projects" onClick={() => setMenuOpen(false)}>Projects</Link>
-          <Link href="/#contact" onClick={() => setMenuOpen(false)}>Contact</Link>
+          <Link href="/#about" onClick={() => setMenuOpen(false)}>
+            About
+          </Link>
+          <Link href="/#experience" onClick={() => setMenuOpen(false)}>
+            Experience
+          </Link>
+          <Link href="/#services" onClick={() => setMenuOpen(false)}>
+            Services
+          </Link>
+          <Link href="/#projects" onClick={() => setMenuOpen(false)}>
+            Projects
+          </Link>
+          <Link href="/#contact" onClick={() => setMenuOpen(false)}>
+            Contact
+          </Link>
         </div>
       </div>
     </>

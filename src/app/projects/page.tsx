@@ -1,26 +1,9 @@
-// app/projects/page.tsx
+'use client';
 
-type GitHubRepo = {
-  id: number;
-  name: string;
-  description: string | null;
-  html_url: string;
-};
+import { useGetReposQuery } from '@/redux/features/githubApi';
 
-async function getRepos(): Promise<GitHubRepo[]> {
-  const res = await fetch("https://api.github.com/users/faisalnc/repos", {
-    next: { revalidate: 3600 }, // Cache for 1 hour
-  });
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch GitHub repos");
-  }
-
-  return res.json();
-}
-
-export default async function ProjectsPage() {
-  const repos = await getRepos();
+export default function ProjectsPage() {
+  const { data: repos, isLoading, isError } = useGetReposQuery();
 
   return (
     <div className="p-6 max-w-6xl mx-auto bg-zinc-900 text-gray-200 min-h-screen">
@@ -30,8 +13,11 @@ export default async function ProjectsPage() {
         Each project highlights my work in frontend, backend, cybersecurity, and more.
       </p>
 
+      {isLoading && <p className="text-center">Loading...</p>}
+      {isError && <p className="text-center text-red-500">Error loading repositories.</p>}
+
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {repos.map((repo: GitHubRepo) => (
+        {repos?.map((repo) => (
           <a
             key={repo.id}
             href={repo.html_url}

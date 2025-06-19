@@ -17,11 +17,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         submittedAt: new Date(),
       });
 
-      console.log("✅ Saved to MongoDB:", result.insertedId);
+      console.log("Saved to MongoDB:", result.insertedId);
 
       return res.status(200).json({ success: true, message: "Form saved to MongoDB!" });
     } catch (error) {
-      console.error("❌ MongoDB error:", error);
+      console.error("MongoDB error:", error);
       return res.status(500).json({ success: false, message: "Database error" });
     }
   }

@@ -1,3 +1,4 @@
+//src/components/Navbar.tsx
 "use client";
 
 import { useState } from "react";
@@ -30,8 +31,8 @@ export default function Navbar() {
       <nav className="fixed top-0 left-0 w-full bg-white dark:bg-zinc-900 shadow-sm z-50">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <Link href="/" onClick={handleScrollTop}>
-            <span className="text-xl font-bold text-blue-600 dark:text-blue-400 hover:opacity-80 transition cursor-pointer">
-              Faisal Nazib
+            <span className="text-xl font-bold text-orange-600 dark:text-orange-400 hover:opacity-80 transition cursor-pointer">
+              Test Site
             </span>
           </Link>
 
@@ -42,6 +43,10 @@ export default function Navbar() {
             <Link href="/#services">Services</Link>
             <Link href="/#projects">Projects</Link>
             <Link href="/#contact">Contact</Link>
+            <Link href="/careers" className="text-orange-600 hover:underline">
+              Careers
+            </Link>{" "}
+            {/* new */}
           </div>
 
           {/* Mobile Menu Icon */}
@@ -97,6 +102,14 @@ export default function Navbar() {
           <Link href="/#contact" onClick={() => setMenuOpen(false)}>
             Contact
           </Link>
+          <Link
+            href="/careers"
+            onClick={() => setMenuOpen(false)}
+            className="text-orange-600"
+          >
+            Careers
+          </Link>{" "}
+          {/* new */}
         </div>
       </div>
     </>

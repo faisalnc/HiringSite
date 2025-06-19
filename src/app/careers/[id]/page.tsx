@@ -5,15 +5,13 @@ import Image from "next/image";
 import { jobs } from "@/app/data/jobs";
 import { Job } from "@/types/job";
 
-type Props = {
-  params: {
-    id: string;
-  };
-};
-
-export default async function JobDetails({ params }: Props) {
-  const { id } = params; 
-  const job: Job | undefined = await getJobById(id); 
+export default async function JobDetails({
+  params,
+}: {
+  params: { id: string };
+}) {
+  const { id } = params;
+  const job: Job | undefined = await getJobById(id);
 
   async function getJobById(id: string): Promise<Job | undefined> {
     // Simulate async behavior like from a DB or API

@@ -1,28 +1,7 @@
-//src/app/page.tsx
-import HeroSection from "@/components/HeroSection";
-import AboutSection from "@/components/AboutSection";
-import ExperienceSection from "@/components/ExperienceSection";
-import ServicesSection from "@/components/ServicesSection";
-import ProjectsSection from "@/components/ProjectsSection";
-import ContactSection from "@/components/ContactSection";
-import ContactForm from "@/components/ContactForm";
-
 export default function Home() {
   return (
-    <>
-      <HeroSection />
-
-      <AboutSection />
-
-      <ExperienceSection />
-
-      <ServicesSection />
-
-      <ProjectsSection />
-
-      <ContactSection />
-      
-      <ContactForm />
-    </>
+    <div className="min-h-screen flex items-center justify-center bg-white">
+      <h1 className="text-4xl font-bold text-gray-800">redirected to existing website</h1>
+    </div>
   );
 }

@@ -7,12 +7,17 @@
 html {
   scroll-behavior: smooth;
 }
-@media (prefers-color-scheme: dark) {
+/* globals.css */
+html {
+  color-scheme: light !important;
+}
+
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
 
 body {
   background: var(--background);

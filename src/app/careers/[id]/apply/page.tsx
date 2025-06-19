@@ -106,8 +106,8 @@ export default function ApplyPage() {
         </button>
       </div>
       {showSuccess && (
-<div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm animate-fadeIn">
-<div className="bg-white border border-gray-200 shadow-lg rounded-xl max-w-md w-full p-6 text-center">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm animate-fadeIn">
+          <div className="bg-white border border-gray-200 shadow-lg rounded-xl max-w-md w-full p-6 text-center">
             <h2 className="text-2xl font-bold text-orange-600 mb-4">
               Application Submitted!
             </h2>
@@ -115,11 +115,11 @@ export default function ApplyPage() {
               Thank you for applying. We’ve received your application.
             </p>
             <button
-  onClick={() => router.push("/careers")}
-  className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-2 rounded transition"
->
-  Back to Jobs
-</button>
+              onClick={() => router.push("/careers")}
+              className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-2 rounded transition"
+            >
+              Back to Jobs
+            </button>
           </div>
         </div>
       )}
@@ -141,7 +141,7 @@ export default function ApplyPage() {
               ...values,
               jobId, // Attach job ID to the form submission
             };
-
+            console.log("Submitting application:", payload);
             const res = await fetch("/api/apply", {
               method: "POST",
               headers: {

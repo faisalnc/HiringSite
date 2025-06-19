@@ -11,12 +11,14 @@ export default async function JobDetails({
   params: { id: string };
 }) {
   const { id } = params;
-  const job: Job | undefined = await getJobById(id);
 
+  // Simulated async fetch (e.g., from DB)
   async function getJobById(id: string): Promise<Job | undefined> {
-    // Simulate async behavior like from a DB or API
     return jobs.find((j) => j.id === id);
   }
+
+  const job = await getJobById(id);
+
   if (!job) return notFound();
 
   return (
@@ -52,7 +54,6 @@ export default async function JobDetails({
             </p>
           )}
 
-          {/* CTA now directly under metadata */}
           <div className="flex flex-wrap items-center gap-4 mt-4">
             <Link
               href={`/careers/${job.id}/apply`}
@@ -104,7 +105,9 @@ export default async function JobDetails({
       {/* Benefits */}
       {job.benefits && job.benefits.length > 0 && (
         <section>
-          <h2 className="text-xl font-semibold text-gray-900 mb-2">Benefits</h2>
+          <h2 className="text-xl font-semibold text-gray-900 mb-2">
+            Benefits
+          </h2>
           <ul className="list-disc list-inside text-gray-800">
             {job.benefits.map((benefit, i) => (
               <li key={i}>{benefit}</li>

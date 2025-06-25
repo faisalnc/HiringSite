@@ -1,9 +1,13 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Poppins } from "next/font/google"; 
 import ClientLayout from "./ClientLayout";
 
-const inter = Inter({ subsets: ["latin"] });
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["200", "300", "600", "700"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Faisal Nazib Portfolio",
@@ -17,7 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-gray-100 text-gray-900 min-h-screen`}>
+      <body className={`${poppins.className} bg-gray-100 text-gray-900 min-h-screen`}>
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>

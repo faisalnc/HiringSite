@@ -10,8 +10,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Faisal Nazib Portfolio",
-  description: "Created with Next.js and Redux Toolkit",
+  title: "Careers - Gakk Media",
+  description: "Find Your Path to Success With Us",
 };
 
 export default function RootLayout({

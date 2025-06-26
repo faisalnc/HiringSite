@@ -31,10 +31,25 @@ export default function ContactSection() {
     terms: false,
   };
 
-  const handleSubmit = (values: ContactFormValues) => {
-    console.log(values);
-    alert("Form submitted!");
-  };
+  const handleSubmit = async (values: ContactFormValues) => {
+  try {
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(values),
+    });
+
+    if (res.ok) {
+      alert("Thank you! Your message has been submitted.");
+    } else {
+      alert("There was a problem. Please try again later.");
+    }
+  } catch (error) {
+    console.error("Submission error:", error);
+    alert("Network error. Try again.");
+  }
+};
+
 
   return (
     <section className="bg-white py-20">

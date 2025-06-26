@@ -7,7 +7,7 @@ export default function HeroBanner() {
 <div className="relative w-full mt-[100px] h-[200px] md:h-[240px] lg:h-[260px] overflow-hidden bg-[#0f1e36]">
       {/* Background Image */}
       <Image
-        src="/images/tempbg.png"
+        src="/images/careerbanner.png"
         alt="Careers Banner"
         fill
         priority
